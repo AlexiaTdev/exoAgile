@@ -7,72 +7,68 @@ print("hello World")
 #assert sum([1, 2, 3]) == 6, "Should be 6"
 #assert sum([1, 2, 3]) == 8, "wrong test"
 
+##________________
+#print(sys.stdout())
+    #assert sys.stdout() == "hello World", "No hello world"
+#_____________________
 
 def testVerificationAffichageHelloWorld():
     #verify ID 1
     # etant donne le démarrage du programme,
     # quand je lis la console,
     # alors je vois le texte "hello world"
-    
-    #print(sys.stdout())
-    #assert sys.stdout() == "hello World", "No hello world"
     print('None')
 
 
 def testAfficherTauxReduction():
-    #verifie ID 12
-    #etant donne une commande
-    #quand je demande le montant
-    #alors on m'affiche le taux de reduction appliqué a coté
+    #verifie ID 12 (depend ID9)
+    #etant donne une commande avec un montant de réduction (de 0e),
+    #quand j'ai un total et un montant de réduction,
+    #alors j'affiche un taux de réduction appliqué à côté du montant de la réduction de la manière suivante, sur une même ligne :
+	#       "Discount "+pourcentageReduction +"%"  et tout a droite "-"+montantDeLaReduction
     print('None')
 
-def testAfficheReductionDe7pourcent():
-    #verifie ID 15
-    # etant donne une commande ,
-    # quand celle ci est supérieure à 7000e,
-    # alors je veux pouvoir présaisir le taux à 7%
-    print('None')
 
 def testInputUserProductName():
     #verifie 18
-    #etant donné une commande
-    #quand je choisis mon article
-    #alors on m'affiche la designation 
+    #etant donne l'ajout d'un article possédant une quantité et un unit price,
+    #quand j'entre la désignation de l'article,
+    #alors j'affiche une ligne avec les éléments suivants  :
+	#designation + quantity + unit price + articleTotalPrice
     print('None')
 
 def testAfficherMontantTotalReduction():
-    #verifie 9
-    #etant donné une commande,
-    #quand je veux visualiser la commande
-    #alors je vois le montant 0 comme réduction fixe
+    #verifie 9 (depend ID4)
+    #etant donne un article avec un prix unitaire, une quantité et un prix total par article,
+    #quand j'ai une commande avec au moins un article,
+    #alors j'affiche un taux de réduction fixe de 0e de la manière suivante :
+	#       "Discount " et tout a droite "-"+0e
     print('None')
 
-# id 2
-def testSaisirPUEtQuantite():
-    # Etant donné une commande
-    # Quand je demande un prix unitaire et une quantité
-    # Alors je calcule et j'imprime un prix total
-    print('None')
+
 
 #id 19
 def testReduction20siFR20000():
-    #Etant donné une commande
-    #Je veux une réduction de 20% si le code pays est FR et le prix total HT > 20 000
-    #Afin d'avoir le prix total à payer après réduction
+    # etant donne une commande,
+    # quand le montant total HT de la commande est supérieure à 20 000 ET que le code pays est "FR",
+    # alors le pourcentage de Réduction (pourcentageReduction) sera de 20%
     print('None')
     
-#id 11
+#id 11 (depend ID1)
 def afficheTauxReductionDebutProgramme():
     #Etant donné l'ouverture du programme
     #Je veux afficher la liste des taux de réduction au démarrage du programme
-    #Afin d'avoir les réductions possibles
+    #Afin d'avoir les réductions possibles (en deux colonnes Order value et Discount rate)
     print('None')
 
-# id 2 parce que afficher prix total sur id 4 c est le total de la liste des articles
+# id 2 (depend ID1) parce que afficher prix total sur id 4 c est le total de la liste des articles
 def testsaisirPUEtQuantite(prix_unitaire ,quantite):
-    # Etant donné ma saisie
-    # Quand j'ai terminé ma commande
-    # Alors j'affiche le prix total
+    #Etant donné une commande
+    # Quand j'ajoute un article, je renseigne un prix unitaire et une quantité
+    # Alors le prix total de l'article est calculé (articleTotalPrice = quantity*unit price)
+    # Et la ligne suivante s'affiche :
+    # quantity + unit price + articleTotalPrice
+
   # Input de la valeur du pu
     #prix_unitaire = float(input("Entrer le prix unitaire: "))
     # Test de la valeur entree
@@ -89,21 +85,36 @@ def testsaisirPUEtQuantite(prix_unitaire ,quantite):
     print(round(prix_unitaire*quantite,3))
 
 
- #id 3
+ #id 3 (depend ID2)
 def testAjoutArticle():
-    #etant donné une commande
-    #quand je veux completer mon panier 
-    #alors j'ajoute des articles
+    #etant donné une commande où j'ai terminé de renseigner un article,
+    #quand on me propose de rajouter un article et que je réponds oui, 
+    #alors je continue l'ajout d'article
+
+
+    #etant donné une commande où j'ai terminé de renseigner un article,
+    #quand on me propose de rajouter un article et que je réponds non, 
+    #alors je finis ma commande
     assert (print("nom article 1") != "nom article 1"), 'nom de l article non recupere'
 
 def testDemanderUserSaisieTauxReduction():
-    #verifie ID 10
-    #etant donne une commande,
-    #
+    #verifie ID 10 (depend ID9)
+    #Etant donne une commande avec un taux de réduction fixe de 0e,
+    #quand je renseigne le taux de réduction à appliquer,
+    #alors est calculé le total without taxes de la commande et le montant de la réduction,
+    #ET on affiche les lignes suivantes :
+        #"-----------------------------------------------------"
+        #"Total without taxes" + totalHT
+        #"Discount " et tout a droite "-"+montant de la réduction+"e"
     print('None')
 
-# id 7
+# id 7 (depend ID6)
 def testDemanderCodeEtatEtAfficherTVA(DictionnaireCodeTva,codeEtat):
+    #Etant donné la liste des taux de TVA affichées par état,
+    #quand je renseigne le code de l'état,
+    #alors j'affiche le taux de TVA correspondant de la manière suivante :
+        #"Tax" + tauxdeTVA + "%"
+
     # Code Etat entree
     #codeEtat = input("Veuillez saisir le code Etat: ")
     assert(codeEtat != "" or codeEtat != None),'Erreur code codeEtat'
@@ -111,8 +122,15 @@ def testDemanderCodeEtatEtAfficherTVA(DictionnaireCodeTva,codeEtat):
     # Afficher le tva correspondant si assert passe
     print(DictionnaireCodeTva.get(codeEtat))  
 
-# ID 8
+# ID 8 (depend ID7)
 def testNePlusAfficherTvaMaisAplLiquer(tva,prix_ht):
+    #Etant donné le renseignement du code etat,
+    #quand j'affiche le taux de TVA,
+    #alors le montant de la TVA est calculé
+    #ET j'affiche les élément de la manière suivante :
+	#"Tax" + tauxdeTVA + "%" + montant de la TVA
+    #ET la liste des taux TVA n'est plus affichée au démarrage de l'application
+
     # Clearing the Screen
     os.system('cls') # Ca marche pas encore le clear console il reste ca
     assert(tva >= 0), 'Valeur Tva non valide'
@@ -135,17 +153,16 @@ def testListeDesCodesTva(dictionnaireCodeTva):
         print("le code pays avec", cle, "vaut : ", valeur) 
 
 
-    
-# Etant donnees qu'une commande total a la somme de X euros
-# Alors une valeur placeholder
+# ID 13, 14, 15, 16, 17
+# Etant donnees que le prix total HT d'une commande,
+# Quand le prix est supérieur à 1000e,
+# Alors on attribue un pourcentage de réduction tel que :
 # Cas <prix total, pourcentage reduction>
 # Cas <1000,3>
 # Cas <5000,5>
 # Cas <7000,7>
 # Cas <10000,10>
 # Cas <15000,15>
-# ID 13, 14, 15, 16,17
-# Le Test
 def testVerificationPresaisiTauxReduct(prix_total,pourcentage_reduction):
     # Notre reduction dependra du prix total
     # prix total pour la 13
@@ -172,27 +189,26 @@ def testVerificationPresaisiTauxReduct(prix_total,pourcentage_reduction):
         assert False, 'Pas de reduction sur la tarif de base avec la valeur du prix total {}'.format(prix_total)
     return pourcentage_reduction
 
-# id 4
+# id 4 (depend ID2)
 def testAfficherLePrixTotal():
-    # Etant donné les articles saisis
+    # Etant donné une commande possédant au moins 1 article,
     # quand je veux compléter ma commande
-    # alors j'affiche le prix total
+    # alors j'affiche une ligne de la manière suivante :
+     #"-----------------------------------------------------"
+        #"Total without taxes" + totalHT
     print('none')
 
-#ID 5
+#ID 5 (depend ID2)
 def testCalculPrixTTC():
     # etant donné les articles saisis
-    # quand on demande le pourcentage de TVA
-    # alors on calcule le prix TTc
+    # quand je veux compléter ma commande
+    # alors on calcule le prix TTc (prixTTC = montant hors taxe - réduction + montant TVA) et l'affiche de la maniere suivante
+        #"-----------------------------------------------------"
+        #"Total prices" + total TTC
     print('None')
     
 
-#ID 13
-def testPresaisirTaux3():
-    #etant donné mon prix total
-    #quand mon total est au dessus de 1000
-    #alors je presaisi mon taux a 3%
-    print('None')
+
 
 # Les codes TVA
 CodeTVA = {'FR': 20, 'BE': 12,'GB': 10,'CA': 11,'BA': 0.5}
@@ -215,3 +231,25 @@ print("nom de l'article: " + nomArticle)
 
 #testVerificationAffichageHelloWorld()
 testAjoutArticle()
+
+
+
+
+
+
+
+########################################################################
+
+def testReductionDe7pourcent():
+    #verifie ID 15
+    # etant donne une commande,
+    # quand le montant total de la commande supérieure à 7000e,
+    # alors le pourcentage de Réduction (pourcentageReduction) sera de 7%
+    print('None')
+
+#ID 13
+def testPresaisirTaux3():
+    #etant donné mon prix total
+    #quand mon total est au dessus de 1000
+    #alors je presaisi mon taux a 3%
+    print('None')
