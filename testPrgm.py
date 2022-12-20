@@ -1,9 +1,11 @@
+import prgm
+
 #Id 1
 def testVerificationAffichageHelloWorld():
     # etant donne le démarrage du programme,
     # quand je lis la console,
     # alors je vois le texte "hello world"
-    print('None')
+    print('')
 
 #Id 2 (depend ID1)
 def testsaisirPUEtQuantite():
@@ -12,7 +14,7 @@ def testsaisirPUEtQuantite():
     # Alors le prix total de l'article est calculé (articleTotalPrice = quantity*unit price)
     # Et la ligne suivante s'affiche :
         # quantity + "                " + unit price + "                " + articleTotalPrice
-    print('None')
+    assert prgm.saisirPUEtQuantite(2,4) == "2     4     8", "problème de quantité, d'unité ou de prix total de l'article"
 
 #Id 3 (depend ID2)
 def testAjoutArticle():
@@ -131,3 +133,6 @@ def testReduction20siFR20000():
 
 
 ##SUITE DE TESTS AUTOMATISES
+
+#testVerificationAffichageHelloWorld()
+testsaisirPUEtQuantite()
