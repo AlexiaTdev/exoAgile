@@ -1,3 +1,4 @@
+import sys
 import prgm
 
 #Id 1
@@ -21,11 +22,17 @@ def testAjoutArticle():
     #etant donné une commande où j'ai terminé de renseigner un article,
     #quand on me propose de rajouter un article et que je réponds oui, 
     #alors je continue l'ajout d'article
+    prgm.creerUnArticle(1,1)
+    prgm.creerUnArticle(1,1)
+    assert len(prgm.commande) == 2, "problème d'ajout"
 
     #etant donné une commande où j'ai terminé de renseigner un article,
     #quand on me propose de rajouter un article et que je réponds non, 
     #alors je finis ma commande
-    print('None')
+    prgm.ajouterUnArticle('n')
+    for article in prgm.commande:
+        assert (prgm.saisirPUEtQuantite(prgm.commande[article][0], prgm.commande[article][1])) == "1     1     1", "problème d'affichage de la liste d article"
+
 
 #Id 4 (depend ID2)
 def testAfficherLePrixTotal():
@@ -136,3 +143,4 @@ def testReduction20siFR20000():
 
 #testVerificationAffichageHelloWorld()
 testsaisirPUEtQuantite()
+testAjoutArticle()
