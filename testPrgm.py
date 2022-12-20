@@ -29,7 +29,6 @@ def testAjoutArticle():
     #etant donné une commande où j'ai terminé de renseigner un article,
     #quand on me propose de rajouter un article et que je réponds non, 
     #alors je finis ma commande
-    prgm.ajouterUnArticle('n')
     for article in prgm.commande:
         assert (prgm.saisirPUEtQuantite(prgm.commande[article][0], prgm.commande[article][1])) == "1     1     1", "problème d'affichage de la liste d article"
 
@@ -41,7 +40,8 @@ def testAfficherLePrixTotal():
     # alors j'affiche une ligne de la manière suivante :
         #"-----------------------------------------------------"
         #"Total without taxes" + totalHT
-    print('none')
+    prgm.creerUnArticle(1,1)
+    assert prgm.calculerTotalHTCommande() == 3, "probleme de total HT"
 
 #Id 5 (depend ID2)
 def testCalculPrixTTC():
@@ -144,3 +144,4 @@ def testReduction20siFR20000():
 #testVerificationAffichageHelloWorld()
 testsaisirPUEtQuantite()
 testAjoutArticle()
+testAfficherLePrixTotal()

@@ -32,9 +32,19 @@ def ajouterUnArticle(choix):
     else:
         proposerAjouterArticle()
 
+def calculerTotalHTCommande():
+    totalHT=0
+    for article in commande:
+        totalHT = int(commande[article][0])*int(commande[article][1]) + totalHT
+    return totalHT
+
+def printFooter():
+    print("-------------------------------")
+    print("Total without taxes" + "     " + str(calculerTotalHTCommande()))
+
+
 if __name__ == "__main__":
     init()
     print(creerUnArticle(None, None))
     proposerAjouterArticle()
-    
-
+    printFooter()
